@@ -20,7 +20,11 @@ employeeName = StringVar()
 employeeJobTitle = StringVar()
 employeeSalary = StringVar()
 
-# Connections:
+appOption = StringVar()
+
+userValue = messagebox.askquestion(appOption)
+
+# Functions:
 
 def connect():
     connection = sqlite3.connect("employees.db")
@@ -51,4 +55,11 @@ def delete():
         messagebox.showinfo("Connection", "Deleted table employees")
     else:
         pass
-    
+
+def close():
+    appOption = 'Are you sure you to close the App ?'
+
+    if userValue == 'yes':
+        root.destroy()
+    else:
+        pass
