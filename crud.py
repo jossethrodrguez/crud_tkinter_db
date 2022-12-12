@@ -63,3 +63,13 @@ def close():
         root.destroy()
     else:
         pass
+
+def clean():
+    employeeID.set("")
+    employeeName.set("")
+    employeeJobTitle.set("")
+    employeeSalary.set("")
+
+    
+
+
