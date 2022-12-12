@@ -41,3 +41,14 @@ def connect():
     except:
         messagebox.showinfo("Connection", "Connection to database Success")
 
+def delete():
+    connection = sqlite3.connect("employees.db")
+    cursor = connection.cursor()
+
+    if messagebox.askyesno("Delete", "Are you sure you want to delete the table employees?"):
+        cursor.execute("DROP TABLE employees")
+
+        messagebox.showinfo("Connection", "Deleted table employees")
+    else:
+        pass
+    
