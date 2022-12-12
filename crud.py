@@ -21,6 +21,8 @@ employeeJobTitle = StringVar()
 employeeSalary = StringVar()
 
 appOption = StringVar()
+appVersion = 1.0
+appHelp = 'Welcome to SQlite App v' + appVersion + '.\n\n' + 'Python CRUD SQlite APP.\n\n' + 'Author: Josseth Rodriguez '
 
 userValue = messagebox.askquestion(appOption)
 
@@ -70,6 +72,8 @@ def clean():
     employeeJobTitle.set("")
     employeeSalary.set("")
 
+def message():
+    appHelp
     
 
 
