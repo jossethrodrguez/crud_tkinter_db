@@ -74,11 +74,11 @@ def connect():
     except:
         messagebox.showinfo("Connection", "Connection to database Success")
 
-def delete():
+def remove():
     connection = sqlite3.connect("employees.db")
     cursor = connection.cursor()
 
-    if messagebox.askyesno("Delete", "Are you sure you want to delete the table employees?"):
+    if messagebox.askyesno("Delete", "Are you sure you want to remove the table employees?"):
         cursor.execute("DROP TABLE employees")
 
         messagebox.showinfo("Connection", "Deleted table employees")
@@ -110,7 +110,7 @@ def show():
     cursor = connection.cursor()
 
     for element in userRecord:
-        appTree.delete(element)
+        appTree.remove(element)
 
     try:
         cursor.execute(' SELECT * employees')
@@ -130,6 +130,8 @@ def create():
         messagebox.showwarning("Error", "Error in adding record to database")
         pass
     clean()
+    show()
+
 
 root.mainloop()
 
