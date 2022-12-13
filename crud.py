@@ -131,8 +131,6 @@ def read():
     except:
         pass
 
-
-
 def update():
     connection = sqlite3.connect("employees.db")
     cursor = connection.cursor()
