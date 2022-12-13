@@ -138,10 +138,24 @@ def update():
     cursor = connection.cursor()
 
     try:
-        cursor.execute('UPDATE employees SET name = ?, job_title = ?, salary = ? WHERE id =' employeeID.get(), (appData))
+        cursor.execute('UPDATE employees SET name = ?, job_title = ?, salary = ? ,WHERE id =' + employeeID.get(), (appData))
         connection.commit()
     except:
         messagebox.showwarning("Error", "Error in updating record to database")
+        pass
+    clean()
+    read()
+
+def delete():
+    connection = sqlite3.connect("employees.db")
+    cursor = connection.cursor()
+
+    try:
+        if messagebox.askyesno("Delete record from database", "Are you sure?"):
+            cursor.execute('DELETE FROM employees WHERE id =' + employeeID.get())
+            connection.commit()
+    except:
+        messagebox.showwarning("Error", "Error in deleting record from database")
         pass
     clean()
     read()
