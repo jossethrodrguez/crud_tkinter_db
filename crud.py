@@ -27,7 +27,7 @@ appHelp = 'Welcome to SQlite App v', appVersion,'.\n\n','Python CRUD SQlite APP.
 appData = employeeName.get(), employeeJobTitle.get(), employeeSalary.get() 
 appTree = ttk.Treeview(height=10, columns=('#0', '#1', '#2'))
 
-userValue = messagebox.askquestion(appOption)
+# userValue = messagebox.askquestion(appOption)
 userRecord = appTree.get_children()
 
 # Desing:
@@ -130,8 +130,6 @@ def read():
             appTree.insert('', 0, text=row[0], values=(row[1], row[2], row[3]))
     except:
         pass
-
-
 
 def update():
     connection = sqlite3.connect("employees.db")
