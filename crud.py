@@ -132,6 +132,18 @@ def create():
     clean()
     show()
 
+def update():
+    connection = sqlite3.connect("employees.db")
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute('UPDATE employees SET name = ?, job_title = ?, salary = ? WHERE id =' employeeID.get(), (appData))
+        connection.commit()
+    except:
+        messagebox.showwarning("Error", "Error in updating record to database")
+        pass
+    clean()
+    show()
 
 root.mainloop()
 
