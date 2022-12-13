@@ -178,6 +178,29 @@ menuHelpData.add_command(label="Clean", command= clean)
 menuHelpData.add_command(label="About", menu=message())
 menubar.add_cascade(label="Help", menu= menuHelpData)
 
+# e  = entries
+# l  = labels
+
+e1 = Entry(root, textvariable=employeeID)
+
+l2 = Label(root, text="Name")
+l2.place(x=50, y=10)
+e2 = Entry(root, textvariable=employeeName, width=50)
+e2.place(x=100, y=10)
+
+l3 = Label(root, text="Job")
+l3.place(x=50, y=40)
+e3 = Entry(root, textvariable=employeeJobTitle)
+e3.place(x=100, y=40)
+
+l4 = Label(root, text="Salary  ")
+l4.place(x=280, y=40)
+e4 = Entry(root, textvariable= employeeSalary, width=10)
+e4.place(x=320, y=40)
+
+l5 = Label(root, text="USD")
+l5.place(x=380, y=40)
+
 root.config(menu=menubar)
 
 
