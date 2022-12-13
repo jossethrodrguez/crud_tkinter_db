@@ -25,11 +25,33 @@ appOption = StringVar()
 appVersion = 1.0
 appHelp = 'Welcome to SQlite App v', appVersion,'.\n\n','Python CRUD SQlite APP.\n\n Author: Josseth Rodriguez '
 appData = employeeName.get(), employeeJobTitle.get(), employeeSalary.get() 
-appTree = ttk.Treeview(height=10, columns=('0', '1', '2'))
-appTree.place(x=0, y =130)
+appTree = ttk.Treeview(height=10, columns=('#0', '#1', '#2'))
 
 userValue = messagebox.askquestion(appOption)
 userRecord = appTree.get_children()
+
+# Desing:
+
+appTree.place(x=0, y =130)
+
+# Column 0
+appTree.column("#0", width=100 )
+appTree.heading("#0", text='ID', anchor=CENTER)
+
+# Column 1
+appTree.column("#01")
+appTree.heading("#1", text='Name', anchor=CENTER)
+
+# Column 2
+appTree.column("#2")
+appTree.heading("#2", text='Job', anchor=CENTER)
+
+# Column 3
+appTree.column("#3", width=100 )
+appTree.heading("#3", text='Salary', anchor=CENTER)
+
+
+
 
 # Functions:
 
