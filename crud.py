@@ -104,8 +104,20 @@ def message():
     
 
 #### CRUD Methods ################################################# 
+def create():
+    connection = sqlite3.connect("employees.db")
+    cursor = connection.cursor()
 
-def show():
+    try:
+        cursor.execute('INSERT INTO employees VALUES(NULL,?,?,?)', (appData))
+        connection.commit()
+    except:
+        messagebox.showwarning("Error", "Error in adding record to database")
+        pass
+    clean()
+    read()
+    
+def read():
     connection = sqlite3.connect("employees.db")
     cursor = connection.cursor()
 
@@ -119,18 +131,7 @@ def show():
     except:
         pass
 
-def create():
-    connection = sqlite3.connect("employees.db")
-    cursor = connection.cursor()
 
-    try:
-        cursor.execute('INSERT INTO employees VALUES(NULL,?,?,?)', (appData))
-        connection.commit()
-    except:
-        messagebox.showwarning("Error", "Error in adding record to database")
-        pass
-    clean()
-    show()
 
 def update():
     connection = sqlite3.connect("employees.db")
@@ -143,7 +144,7 @@ def update():
         messagebox.showwarning("Error", "Error in updating record to database")
         pass
     clean()
-    show()
+    read()
 
 root.mainloop()
 
