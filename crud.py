@@ -23,7 +23,7 @@ employeeSalary = StringVar()
 
 appOption = StringVar()
 appVersion = 1.0
-appHelp = 'Welcome to SQlite App v' + appVersion + '.\n\n' + 'Python CRUD SQlite APP.\n\n' + 'Author: Josseth Rodriguez '
+appHelp = 'Welcome to SQlite App v', appVersion,'.\n\n','Python CRUD SQlite APP.\n\n Author: Josseth Rodriguez '
 appData = employeeName.get(), employeeJobTitle.get(), employeeSalary.get() 
 appTree = ttk.Treeview(height=10, columns=('0', '1', '2'))
 appTree.place(x=0, y =130)
