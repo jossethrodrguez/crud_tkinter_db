@@ -1,6 +1,7 @@
 # Python CRUD SQlite APP.
 
 # import dependencies
+import tkinter
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
@@ -23,8 +24,12 @@ employeeSalary = StringVar()
 appOption = StringVar()
 appVersion = 1.0
 appHelp = 'Welcome to SQlite App v' + appVersion + '.\n\n' + 'Python CRUD SQlite APP.\n\n' + 'Author: Josseth Rodriguez '
+appData = employeeName.get(), employeeJobTitle.get(), employeeSalary.get() 
+appTree = ttk.Treeview(height=10, columns=('0', '1', '2'))
+appTree.place(x=0, y =130)
 
 userValue = messagebox.askquestion(appOption)
+userRecord = appTree.get_children()
 
 # Functions:
 
@@ -76,4 +81,34 @@ def message():
     appHelp
     
 
+#### CRUD Methods ################################################# 
 
+def show():
+    connection = sqlite3.connect("employees.db")
+    cursor = connection.cursor()
+
+    for element in userRecord:
+        appTree.delete(element)
+
+    try:
+        cursor.execute(' SELECT * employees')
+        for row in cursor:
+            appTree.insert('', 0, text=row[0], values=(row[1], row[2], row[3]))
+    except:
+        pass
+
+def create():
+    connection = sqlite3.connect("employees.db")
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute('INSERT INTO employees VALUES(NULL,?,?,?)', (appData))
+        connection.commit()
+    except:
+        messagebox.showwarning("Error", "Error in adding record to database")
+        pass
+    clean()
+
+root.mainloop()
+
+            
