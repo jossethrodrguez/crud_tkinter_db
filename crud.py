@@ -164,7 +164,7 @@ def delete():
 
 menubar = Menu(root)
 
-
+# Menu
 menuBaseData = Menu(menubar, tearoff=0)
 
 menuBaseData.add_command(label="New", command=connect)
@@ -177,6 +177,8 @@ menuHelpData = Menu(menubar, tearoff=0)
 menuHelpData.add_command(label="Clean", command= clean)
 menuHelpData.add_command(label="About", menu=message())
 menubar.add_cascade(label="Help", menu= menuHelpData)
+
+# Labels and Textbox
 
 # e  = entries
 # l  = labels
@@ -200,6 +202,24 @@ e4.place(x=320, y=40)
 
 l5 = Label(root, text="USD")
 l5.place(x=380, y=40)
+
+# Buttons
+
+b1 = Button(root, text="Create", command=create)
+b1.place(x=30, y=90)
+
+b2 = Button(root, text="Show", command= read)
+b2.place(x=180, y=90)
+
+b3 = Button(root, text="Update", command=update)
+b3.place(x=330, y=90)
+
+b4 = Button(root, text="Delete", command=delete, bg='red')
+b4.place(x=480, y=90)
+
+
+
+
 
 root.config(menu=menubar)
 
