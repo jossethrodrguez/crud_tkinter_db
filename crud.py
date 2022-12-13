@@ -23,11 +23,11 @@ employeeSalary = StringVar()
 
 appOption = StringVar()
 appVersion = 1.0
-appHelp = 'Welcome to SQlite App v', appVersion,'.\n\n','Python CRUD SQlite APP.\n\n Author: Josseth Rodriguez '
+
 appData = employeeName.get(), employeeJobTitle.get(), employeeSalary.get() 
 appTree = ttk.Treeview(height=10, columns=('#0', '#1', '#2'))
 
-# userValue = messagebox.askquestion(appOption)
+
 userRecord = appTree.get_children()
 
 # Desing:
@@ -49,6 +49,7 @@ appTree.heading("#2", text='Job', anchor=CENTER)
 # Column 3
 appTree.column("#3", width=100 )
 appTree.heading("#3", text='Salary', anchor=CENTER)
+
 
 
 
@@ -87,6 +88,7 @@ def remove():
 
 def close():
     appOption = 'Are you sure you to close the App ?'
+    userValue = messagebox.askquestion(appOption)
 
     if userValue == 'yes':
         root.destroy()
@@ -100,7 +102,7 @@ def clean():
     employeeSalary.set("")
 
 def message():
-    appHelp
+    appHelp = 'Welcome to SQlite App v', appVersion,'.\n\n','Python CRUD SQlite APP.\n\n Author: Josseth Rodriguez '
     
 
 #### CRUD Methods ################################################# 
@@ -157,6 +159,27 @@ def delete():
         pass
     clean()
     read()
+
+# widget:
+
+menubar = Menu(root)
+
+
+menuBaseData = Menu(menubar, tearoff=0)
+
+menuBaseData.add_command(label="New", command=connect)
+menuBaseData.add_command(label="Remove", command=remove)
+menuBaseData.add_command(label="Exit", command=close)
+menubar.add_cascade(label="Start", menu=menuBaseData)
+
+menuHelpData = Menu(menubar, tearoff=0)
+
+menuHelpData.add_command(label="Clean", command= clean)
+menuHelpData.add_command(label="About", menu=message())
+menubar.add_cascade(label="Help", menu= menuHelpData)
+
+root.config(menu=menubar)
+
 
 root.mainloop()
 
