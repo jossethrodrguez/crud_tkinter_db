@@ -56,7 +56,7 @@ appTree.heading("#3", text='Salary', anchor=CENTER)
 
 # Functions:
 
-def connect():
+def connectDB():
     connection = sqlite3.connect("employees.db")
     cursor = connection.cursor()
 
@@ -167,7 +167,7 @@ menubar = Menu(root)
 # Menu
 menuBaseData = Menu(menubar, tearoff=0)
 
-menuBaseData.add_command(label="New", command=connect)
+menuBaseData.add_command(label="New", command=connectDB)
 menuBaseData.add_command(label="Remove", command=remove)
 menuBaseData.add_command(label="Exit", command=close)
 menubar.add_cascade(label="Start", menu=menuBaseData)
